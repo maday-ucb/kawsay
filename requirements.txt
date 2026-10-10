@@ -1,0 +1,26 @@
+# Web framework
+fastapi>=0.115.5
+uvicorn[standard]>=0.32.1
+
+# Embeddings
+sentence-transformers>=3.3.1
+torch>=2.5.1
+
+# PDF extraction (installed: 1.28.2)
+pymupdf>=1.24.14
+pymupdf4llm>=0.0.17
+
+# Retrieval / indexing
+scikit-learn>=1.5.2
+rank-bm25>=0.2.2
+numpy>=1.26.4
+joblib>=1.4.2
+
+# Ollama client
+ollama>=0.4.4
+
+# Validation
+pydantic>=2.10.3
+
+# Testing
+pytest>=8.0.0

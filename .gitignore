@@ -1,0 +1,37 @@
+# ── Entorno virtual ──────────────────────────────────────────────────────────
+.venv/
+venv/
+env/
+
+# ── PDFs originales (archivos grandes, no van a git) ─────────────────────────
+data/raw_pdfs/
+data/PdfsExcluidos/
+data/PdfsExcluidosParaPruebasPorTamanio/
+
+# ── Modelo de embeddings (se descarga con download_model.py, ~280 MB) ─────────
+models/
+
+# ── Artefactos generados (se regeneran con build_index) ──────────────────────
+# metrics.json NO se ignora: contiene los resultados reales de evaluación
+artifacts/index.joblib
+artifacts/evaluation.md
+artifacts/retrieval_predictions.json
+
+# ── Python ───────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+
+# ── Auditoría (archivos locales de trabajo) ───────────────────────────────────
+audit.csv
+audit - Copy.csv.xlsx
+*.xlsx
+
+# ── OS ───────────────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+
+# ── IDE ──────────────────────────────────────────────────────────────────────
+.vscode/
+.idea/
