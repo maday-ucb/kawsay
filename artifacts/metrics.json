@@ -1,0 +1,74 @@
+{
+  "version": "kawsay-v1-1e918ac6",
+  "corpus_hash": "1e918ac6f237b7b9c36b3543034a975e08c349c4bc306d6b4a9ae5061840acb6",
+  "queries_sha256": "37e89ab63790516b449956251f4edad1e024b12a1465c21b5582be4e8cefa59a",
+  "documents": 207,
+  "chunks": 20161,
+  "query_count": 24,
+  "threshold_selection": {
+    "threshold": 0.8641160726547241,
+    "f1": 0.8888888888888888,
+    "precision": 0.8,
+    "recall": 1.0,
+    "tn": 1,
+    "fp": 2,
+    "fn": 0,
+    "tp": 8
+  },
+  "partitions": {
+    "validation": {
+      "queries": 11,
+      "answerable": 8,
+      "retrieval": {
+        "semantic": {
+          "ndcg_at_5": 0.40406764918077964,
+          "recall_at_5": 0.3526785714285714,
+          "precision_at_5": 0.30000000000000004,
+          "mrr_at_5": 0.5729166666666666
+        },
+        "lexical": {
+          "ndcg_at_5": 0.4340275190258215,
+          "recall_at_5": 0.4107142857142857,
+          "precision_at_5": 0.32499999999999996,
+          "mrr_at_5": 0.59375
+        }
+      },
+      "gate": {
+        "f1": 0.8888888888888888,
+        "precision": 0.8,
+        "recall": 1.0,
+        "tn": 1,
+        "fp": 2,
+        "fn": 0,
+        "tp": 8
+      }
+    },
+    "test": {
+      "queries": 13,
+      "answerable": 10,
+      "retrieval": {
+        "semantic": {
+          "ndcg_at_5": 0.5623766016726315,
+          "recall_at_5": 0.5083333333333333,
+          "precision_at_5": 0.44000000000000006,
+          "mrr_at_5": 0.7833333333333333
+        },
+        "lexical": {
+          "ndcg_at_5": 0.25082344401092216,
+          "recall_at_5": 0.225,
+          "precision_at_5": 0.2,
+          "mrr_at_5": 0.4333333333333333
+        }
+      },
+      "gate": {
+        "f1": 0.8181818181818182,
+        "precision": 0.75,
+        "recall": 0.9,
+        "tn": 0,
+        "fp": 3,
+        "fn": 1,
+        "tp": 9
+      }
+    }
+  }
+}
