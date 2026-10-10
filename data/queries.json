@@ -1,0 +1,194 @@
+[
+  {
+    "query_id":     "Q01",
+    "family_id":    "F01",
+    "split":        "test",
+    "query":        "Experiencias de revitalización del quechua mediante educación.",
+    "answerable":   true,
+    "relevant_ids": ["D035-S1", "D035-S2", "D181-S4", "D001-S8"]
+  },
+  {
+    "query_id":     "Q02",
+    "family_id":    "F01",
+    "split":        "test",
+    "query":        "Programas educativos bilingües para preservar el quechua.",
+    "answerable":   true,
+    "relevant_ids": ["D181-S39", "D181-S4", "D139-S52", "D035-S1"]
+  },
+  {
+    "query_id":     "Q03",
+    "family_id":    "F02",
+    "split":        "test",
+    "query":        "Proyectos que utilizan radio para fortalecer lenguas indígenas.",
+    "answerable":   true,
+    "relevant_ids": ["D201-S11", "D201-S7", "D201-S113", "D201-S8"]
+  },
+  {
+    "query_id":     "Q04",
+    "family_id":    "F02",
+    "split":        "test",
+    "query":        "Uso de medios de comunicación comunitarios para revitalizar lenguas.",
+    "answerable":   true,
+    "relevant_ids": ["D201-S3", "D201-S7", "D201-S88"]
+  },
+  {
+    "query_id":     "Q05",
+    "family_id":    "F03",
+    "split":        "test",
+    "query":        "Estrategias para involucrar a jóvenes en la revitalización lingüística.",
+    "answerable":   true,
+    "relevant_ids": ["D158-S178", "D181-S23", "D195-S218", "D181-S4"]
+  },
+  {
+    "query_id":     "Q06",
+    "family_id":    "F03",
+    "split":        "test",
+    "query":        "Participación juvenil en la preservación de lenguas originarias.",
+    "answerable":   true,
+    "relevant_ids": ["D202-S122", "D204-S128", "D158-S178", "D199-S202", "D195-S5", "D161-S213"]
+  },
+  {
+    "query_id":     "Q07",
+    "family_id":    "F04",
+    "split":        "test",
+    "query":        "Experiencias de recuperación de lenguas indígenas en comunidades rurales.",
+    "answerable":   true,
+    "relevant_ids": ["D136-S4", "D136-S22", "D136-S27", "D070-S491", "D136-S117", "D131-S152"]
+  },
+  {
+    "query_id":     "Q08",
+    "family_id":    "F04",
+    "split":        "test",
+    "query":        "Revitalización lingüística en zonas rurales y comunidades campesinas.",
+    "answerable":   true,
+    "relevant_ids": ["D094-S4", "D136-S4", "D189-S57", "D131-S152"]
+  },
+  {
+    "query_id":     "Q09",
+    "family_id":    "F05",
+    "split":        "test",
+    "query":        "Políticas públicas de preservación de lenguas originarias en Bolivia.",
+    "answerable":   true,
+    "relevant_ids": ["D160-S48", "D120-S194", "D104-S27", "D174-S64"]
+  },
+  {
+    "query_id":     "Q10",
+    "family_id":    "F05",
+    "split":        "test",
+    "query":        "Marco legal e institucional para la protección de lenguas indígenas.",
+    "answerable":   true,
+    "relevant_ids": ["D142-S26", "D142-S31", "D104-S2", "D174-S64"]
+  },
+  {
+    "query_id":     "Q11",
+    "family_id":    "F06",
+    "split":        "validation",
+    "query":        "Rol de los ancianos y sabios en la transmisión de lenguas indígenas.",
+    "answerable":   true,
+    "relevant_ids": ["D001-S9", "D169-S136", "D146-S144"]
+  },
+  {
+    "query_id":     "Q12",
+    "family_id":    "F06",
+    "split":        "validation",
+    "query":        "Transmisión intergeneracional del conocimiento lingüístico indígena.",
+    "answerable":   true,
+    "relevant_ids": ["D130-S39", "D130-S72", "D161-S123"]
+  },
+  {
+    "query_id":     "Q13",
+    "family_id":    "F07",
+    "split":        "validation",
+    "query":        "Materiales didácticos para la enseñanza del aymara.",
+    "answerable":   true,
+    "relevant_ids": ["D137-S122", "D137-S128", "D177-S92", "D188-S204"]
+  },
+  {
+    "query_id":     "Q14",
+    "family_id":    "F07",
+    "split":        "validation",
+    "query":        "Recursos pedagógicos para aprender lenguas indígenas andinas.",
+    "answerable":   true,
+    "relevant_ids": ["D137-S122", "D156-S105", "D177-S92"]
+  },
+  {
+    "query_id":     "Q15",
+    "family_id":    "F08",
+    "split":        "validation",
+    "query":        "Documentación y archivo de lenguas en peligro de extinción.",
+    "answerable":   true,
+    "relevant_ids": ["D004-S1", "D004-S5", "D004-S30", "D004-S31", "D004-S33", "D031-S9", "D031-S10"]
+  },
+  {
+    "query_id":     "Q16",
+    "family_id":    "F08",
+    "split":        "validation",
+    "query":        "Registro y preservación digital de lenguas amenazadas.",
+    "answerable":   true,
+    "relevant_ids": ["D004-S1", "D004-S30", "D201-S6", "D201-S36", "D201-S153", "D031-S9"]
+  },
+  {
+    "query_id":     "Q17",
+    "family_id":    "F09",
+    "split":        "validation",
+    "query":        "Impacto del guaraní en la identidad cultural paraguaya.",
+    "answerable":   true,
+    "relevant_ids": ["D014-S9", "D014-S10", "D165-S131", "D165-S282"]
+  },
+  {
+    "query_id":     "Q18",
+    "family_id":    "F09",
+    "split":        "validation",
+    "query":        "Lengua guaraní como elemento de cohesión social y cultural.",
+    "answerable":   true,
+    "relevant_ids": ["D014-S8", "D014-S14", "D165-S102"]
+  },
+  {
+    "query_id":     "Q19",
+    "family_id":    "F10",
+    "split":        "test",
+    "query":        "Número exacto de hablantes de quechua registrados en el último censo.",
+    "answerable":   false,
+    "relevant_ids": []
+  },
+  {
+    "query_id":     "Q20",
+    "family_id":    "F11",
+    "split":        "test",
+    "query":        "Aplicaciones móviles para aprender lenguas indígenas amazónicas.",
+    "answerable":   false,
+    "relevant_ids": []
+  },
+  {
+    "query_id":     "Q21",
+    "family_id":    "F12",
+    "split":        "test",
+    "query":        "Presupuesto asignado por el gobierno boliviano a lenguas indígenas en 2023.",
+    "answerable":   false,
+    "relevant_ids": []
+  },
+  {
+    "query_id":     "Q22",
+    "family_id":    "F13",
+    "split":        "validation",
+    "query":        "Costo de publicar un diccionario de lengua indígena en Bolivia.",
+    "answerable":   false,
+    "relevant_ids": []
+  },
+  {
+    "query_id":     "Q23",
+    "family_id":    "F14",
+    "split":        "validation",
+    "query":        "Recetas de cocina tradicional en lengua quechua.",
+    "answerable":   false,
+    "relevant_ids": []
+  },
+  {
+    "query_id":     "Q24",
+    "family_id":    "F15",
+    "split":        "validation",
+    "query":        "Nombre del presidente de Bolivia en 2024.",
+    "answerable":   false,
+    "relevant_ids": []
+  }
+]
