@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Kawsay · Recuperación semántica de documentos lingüísticos</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+    <script src="/static/app.js" defer></script>
+  </head>
+  <body>
+    <header class="header">
+      <a class="brand" href="/" aria-label="Kawsay, inicio">
+        <span aria-hidden="true" class="brand-mark">k.</span>
+        kawsay
+        <span class="brand-caption">MEMORIA LINGÜÍSTICA VIVA</span>
+      </a>
+      <span class="badge">MODELOS LOCALES · REVITALIZACIÓN LINGÜÍSTICA</span>
+      <button id="theme-toggle" class="theme-toggle" aria-label="Cambiar tema">☀</button>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div>
+          <p class="eyebrow">CORPUS DE REVITALIZACIÓN LINGÜÍSTICA</p>
+          <h1>Busca en el conocimiento.<br /><em>Encuentra las fuentes.</em></h1>
+          <p>
+            Consulta tesis, artículos, proyectos y materiales sobre lenguas
+            indígenas. El sistema recupera los cinco fragmentos más relevantes y
+            puede redactar una respuesta citando sus fuentes.
+          </p>
+        </div>
+        <aside class="hero-card">
+          <span class="hero-number" id="doc-count">—</span>
+          <strong>documentos indexados</strong>
+          <div class="steps">
+            <span>Consultar</span>
+            <span aria-hidden="true">→</span>
+            <span>Recuperar</span>
+            <span aria-hidden="true">→</span>
+            <span>Responder</span>
+          </div>
+          <small>Quechua · Aymara · Guaraní · y más lenguas.</small>
+        </aside>
+      </section>
+
+      <nav class="navigation" aria-label="Secciones">
+        <button data-view="consult" class="active" aria-pressed="true">01 · Consultar</button>
+        <button data-view="library" aria-pressed="false">02 · Corpus</button>
+        <button data-view="evaluation" aria-pressed="false">03 · Evaluación</button>
+      </nav>
+
+      <p id="status" role="status" aria-live="polite">Cargando corpus e índice…</p>
+
+      <!-- ── VISTA: CONSULTAR ── -->
+      <section id="consult" class="view">
+        <div class="workspace">
+
+          <section class="panel question-panel">
+            <p class="eyebrow">TU CONSULTA</p>
+            <h2>¿Qué quieres encontrar?</h2>
+            <div class="question-layout">
+              <form id="question-form">
+                <label for="query">Consulta sobre revitalización lingüística</label>
+                <textarea
+                  id="query"
+                  rows="3"
+                  minlength="10"
+                  maxlength="500"
+                  required
+                  placeholder="Por ejemplo: experiencias de revitalización del quechua mediante educación bilingüe"
+                ></textarea>
+                <div class="input-note">
+                  <span>Hasta 500 caracteres · español o inglés · <strong>Solo buscar</strong> no requiere Ollama.</span>
+                  <span id="counter">0 / 500</span>
+                </div>
+                <div class="actions">
+                  <button id="search" class="primary" type="button" disabled>
+                    Solo buscar
+                  </button>
+                  <button id="ask" class="secondary" type="submit" disabled>
+                    Consultar con fuentes (Ollama) <span aria-hidden="true">↗</span>
+                  </button>
+                </div>
+              </form>
+              <div class="presets">
+                <span class="eyebrow">EJEMPLOS</span>
+                <button data-question="Experiencias de revitalización del quechua mediante educación.">Quechua y educación</button>
+                <button data-question="Proyectos que utilizan radio para fortalecer lenguas indígenas.">Radio y lenguas indígenas</button>
+                <button data-question="Estrategias para involucrar a jóvenes en la revitalización lingüística.">Jóvenes y revitalización</button>
+                <button data-question="Experiencias de recuperación de lenguas indígenas en comunidades rurales.">Comunidades rurales</button>
+                <button data-question="Políticas públicas de preservación de lenguas originarias en Bolivia.">Políticas públicas</button>
+              </div>
+            </div>
+
+            <div class="principle">
+              <strong>Buscar y responder son tareas distintas.</strong>
+              <p>«Solo buscar» devuelve fragmentos ordenados por similitud semántica comparados con BM25, sin necesidad de Ollama. «Consultar con fuentes» usa esos fragmentos para redactar una respuesta con un modelo de lenguaje local (requiere Ollama corriendo).</p>
+            </div>
+          </section>
+
+          <section class="panel answer-panel" id="answer-panel" hidden aria-labelledby="answer-heading">
+            <p class="eyebrow">RESPUESTA CON EVIDENCIA</p>
+            <h2 id="answer-heading">Del documento a la respuesta</h2>
+            <div id="answer-result">
+              <span id="answer-state" class="answer-state"></span>
+              <p id="answer-text" class="answer-text"></p>
+              <div id="evidence" class="evidence"></div>
+              <p id="answer-note" class="fine"></p>
+              <p id="timing" class="fine"></p>
+            </div>
+          </section>
+        </div>
+
+        <section id="retrieval-panel" class="panel retrieval-panel" hidden>
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">LO QUE ENCONTRÓ LA BÚSQUEDA</p>
+              <h2>Fragmentos recuperados</h2>
+            </div>
+            <div class="method-buttons" aria-label="Método de búsqueda">
+              <button data-method="semantic" class="active" aria-pressed="true">Semántica</button>
+              <button data-method="lexical" aria-pressed="false">Palabras · BM25</button>
+            </div>
+          </div>
+          <p class="fine">
+            Los cinco primeros resultados se ordenan por similitud. El puntaje semántico
+            está entre 0 y 1 (similitud coseno). El puntaje BM25 es una escala no acotada:
+            valores más altos indican mayor coincidencia léxica, pero no son comparables
+            directamente con los scores semánticos.
+          </p>
+          <div id="retrieval-cards" class="retrieval-cards"></div>
+          <p id="gate-note" class="fine"></p>
+        </section>
+
+      </section>
+
+      <!-- ── VISTA: CORPUS ── -->
+      <section id="library" class="view" hidden>
+        <div class="panel">
+          <p class="eyebrow">FUENTES ABIERTAS A REVISIÓN</p>
+          <h2>El corpus completo</h2>
+          <p>
+            Documentos sobre revitalización lingüística de lenguas indígenas:
+            tesis, artículos, proyectos, materiales didácticos y más.
+            Cada fragmento tiene un identificador estable para citarlo.
+          </p>
+          <div class="library-filters">
+            <label for="filter-type">Filtrar por tipo:</label>
+            <select id="filter-type">
+              <option value="">Todos</option>
+              <option value="tesis">Tesis</option>
+              <option value="articulo">Artículo</option>
+              <option value="proyecto">Proyecto</option>
+              <option value="libro">Libro</option>
+              <option value="material">Material didáctico</option>
+              <option value="otro">Otro</option>
+            </select>
+          </div>
+          <div id="documents" class="documents"></div>
+        </div>
+      </section>
+
+      <!-- ── VISTA: EVALUACIÓN ── -->
+      <section id="evaluation" class="view" hidden>
+        <div class="panel">
+          <p class="eyebrow">MEDIR CADA ETAPA</p>
+          <h2>¿Encuentra el fragmento que necesitamos?</h2>
+          <p>
+            El conjunto de prueba contiene consultas con respuesta y consultas
+            sin respuesta en el corpus. Las consultas de validación pertenecen
+            a otras familias temáticas.
+          </p>
+          <div id="metric-cards" class="metric-cards"></div>
+          <div class="table-wrap">
+            <table>
+              <caption>Ranking de prueba: solo consultas con al menos un fragmento relevante</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Métrica</th>
+                  <th scope="col">Semántica</th>
+                  <th scope="col">BM25</th>
+                </tr>
+              </thead>
+              <tbody id="metrics-table"></tbody>
+            </table>
+          </div>
+          <p id="retrieval-verdict" class="notice"></p>
+          <div class="explain-grid">
+            <article>
+              <h3>Recuperación semántica</h3>
+              <p>
+                NDCG@5 premia poner el fragmento relevante primero. Recall@5
+                indica si lo encontramos entre los cinco resultados. MRR@5 es
+                el inverso de la posición del primer resultado relevante.
+              </p>
+            </article>
+            <article>
+              <h3>Línea base BM25</h3>
+              <p>
+                BM25 es una mejora de TF-IDF que pondera frecuencia de términos
+                y longitud del documento. Es la línea base estándar en
+                recuperación de información.
+              </p>
+            </article>
+            <article>
+              <h3>Filtro de evidencia</h3>
+              <p>
+                Un umbral de similitud decide si vale la pena intentar generar
+                una respuesta. Se elige en validación para maximizar F1 entre
+                consultas respondibles y no respondibles.
+              </p>
+              <p id="gate-metrics" class="fine"></p>
+            </article>
+          </div>
+          <p class="notice">
+            Los modelos de embeddings están preentrenados. Indexar este corpus
+            no los reentrena. La evaluación sirve para medir la recuperación,
+            no para garantizar desempeño en otros dominios.
+          </p>
+        </div>
+      </section>
+
+      <footer>
+        <span>kawsay / recuperación semántica de documentos de revitalización lingüística</span>
+        <a href="/docs" target="_blank" rel="noopener">Explorar la API ↗</a>
+      </footer>
+    </main>
+  </body>
+</html>
